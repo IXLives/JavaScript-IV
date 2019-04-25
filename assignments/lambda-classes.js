@@ -2,12 +2,12 @@
 
 //Person Class
 class Person {
-    constructor(info) {
+    constructor(persInfo) {
         //Props
-        this.name = info.name;
-        this.age = info.age;
-        this.location = info.location;
-        this.gender = info.gender;
+        this.name = persInfo.name;
+        this.age = persInfo.age;
+        this.location = persInfo.location;
+        this.gender = persInfo.gender;
         }
         //Methods
         speak() {
@@ -15,6 +15,7 @@ class Person {
         }
 }
 
+/* --- Person class testing
 const taylor = new Person({
     name: 'Taylor',
     age: 24,
@@ -39,3 +40,58 @@ const xavier = new Person({
 console.log(taylor.speak());
 console.log(ian.speak());
 console.log(xavier.speak());
+*/
+
+
+//Instructor Class
+class Instructor extends Person{
+    constructor(instrInfo){
+        //Props
+        super(instrInfo);
+        this.specialty = instrInfo.specialty;
+        this.favLanguage = instrInfo.favLanguage;
+        this.catchPhrase = instrInfo.catchPhrase;
+    }
+
+    demo(subject){
+        return `Today we are learning about ${subject}`;
+    }
+
+    grade(student, subject) {
+        return `${student.name} receives a perfect score on ${subject}.`;
+    }
+}
+
+const taylor = new Instructor({
+    name: 'Taylor',
+    age: 24,
+    location: 'Atlanta',
+    gender: 'Female',
+    specialty: 'Semantic Styling',
+    favLanguage: 'HTML',
+    catchPhrase: "If it's well written, it's easy to read."
+});
+
+const ian = new Instructor({
+    name: 'Ian',
+    age: 31,
+    location: 'Atlanta',
+    gender: 'Male',
+    specialty: 'Programming',
+    favLanguage: 'JavaScript',
+    catchPhrase: "I am one with the machine."
+});
+
+const xavier = new Instructor({
+    name: 'Xavier',
+    age: 18,
+    location: 'Stone Mountain',
+    gender: 'Male',
+    specialty: 'Creative Solutions',
+    favLanguage: 'English',
+    catchPhrase: "Wildcard, baby!"
+});
+
+console.log(taylor.demo('Semantic Markup'));
+console.log(ian.demo('Intensive Programming'));
+console.log(xavier.demo('Charlie Work.'));
