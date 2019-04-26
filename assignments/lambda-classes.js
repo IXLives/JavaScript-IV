@@ -105,8 +105,8 @@ class Student extends Person{
 
     listsSubjects(){
         // This feels wrong/too easy. Tried a .foreach() but it returned undefined
-        this.favSubjects.forEach(function(subject){
-            console.log(subject);
+        this.favSubjects.forEach(function (subject){
+            console.log(`One of my favorite subjects is ${subject}`);
         });
         //return this.favSubjects;
     }
@@ -219,9 +219,9 @@ console.log(ian.grade(carl, 'Astronomy'));
 console.log(xavier.grade(bill, 'Programming'));
 
 // --- Student testing / listsSubjects
-console.log(neil.listsSubjects());
-console.log(carl.listsSubjects());
-console.log(bill.listsSubjects());
+neil.listsSubjects();
+carl.listsSubjects();
+bill.listsSubjects();
 // -- Student testing PRAssignment
 console.log(neil.PRAssignment('HTML'));
 console.log(carl.PRAssignment('Astronomy'));
@@ -237,3 +237,6 @@ console.log(ganon.debugsCode(carl, 'Astronomy'));
 console.log(zelda.standUp('Help!'));
 */
 
+neil.listsSubjects();
+carl.listsSubjects();
+bill.listsSubjects();
