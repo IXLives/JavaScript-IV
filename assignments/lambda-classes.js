@@ -105,10 +105,10 @@ class Student extends Person{
 
     listsSubjects(){
         // This feels wrong/too easy. Tried a .foreach() but it returned undefined
-        // this.favSubjects.forEach(function(subject){
-        //    return subject;
-        // });
-        return this.favSubjects;
+        this.favSubjects.forEach(function(subject){
+            console.log(subject);
+        });
+        //return this.favSubjects;
     }
 
     PRAssignment(subject) {
@@ -151,6 +151,61 @@ const bill = new Student ({
     favSubjects: ['Programming', 'Hardware Design', 'Software Design']
 });
 
+//Project Manager Class
+class ProjectManager extends Instructor {
+    constructor (PMinfo) {
+        super(PMinfo);
+        this.gradClassName = PMinfo.gradClassName;
+        this.favInstructor = PMinfo.favInstructor;
+    }
+
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!`;
+    }
+
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+    }
+}
+
+
+// Project Managers
+const link = new ProjectManager({
+    name: 'Link',
+    age: 9000,
+    location: 'Hyrule',
+    gender: 'Male',
+    specialty: 'Heroism',
+    favLanguage: 'Sheikah',
+    catchPhrase: "...", // Link doesn't talk
+    gradClassName: 'Monopoly',
+    favInstructor: ian
+});
+
+const zelda = new ProjectManager({
+    name: 'Zelda',
+    age: 9000,
+    location: 'Hyrule',
+    gender: 'Female',
+    specialty: 'Princessery',
+    favLanguage: 'Sheikah',
+    catchPhrase: "It's dangerous to go alone, take this!",
+    gradClassName: 'Stargazing 101',
+    favInstructor: taylor
+});
+
+const ganon = new ProjectManager({
+    name: 'Ganondorf',
+    age: 4500,
+    location: 'Lowrule',
+    gender: 'Male',
+    specialty: 'Villainy',
+    favLanguage: 'Sheikah',
+    catchPhrase: "I will cover the world in Darkness",
+    gradClassName: 'Web FT 1',
+    favInstructor: xavier
+});
+
 
 /* 
 // --- Instructor Testing / demo
@@ -175,4 +230,10 @@ console.log(bill.PRAssignment('Programming'));
 console.log(neil.sprintChallenge('HTML'));
 console.log(carl.sprintChallenge('Astronomy'));
 console.log(bill.sprintChallenge('Programming'));
+
+// --- PM Testing
+console.log(link.standUp('Web PT 99'));
+console.log(ganon.debugsCode(carl, 'Astronomy'));
+console.log(zelda.standUp('Help!'));
 */
+
